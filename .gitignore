@@ -491,3 +491,5 @@ $RECYCLE.BIN/
 /playwright/.auth/
 /user.json
 .azure
+/eShop.sln
+/src/eShop.AppHost/appsettings.json

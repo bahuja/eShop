@@ -52,11 +52,11 @@ var webHooksApi = builder.AddProject<Projects.Webhooks_API>("webhooks-api")
     .WithEnvironment("Identity__Url", identityEndpoint);
 
 // Reverse proxies
-builder.AddProject<Projects.Mobile_Bff_Shopping>("mobile-bff")
-    .WithReference(catalogApi)
-    .WithReference(orderingApi)
-    .WithReference(basketApi)
-    .WithReference(identityApi);
+//builder.AddProject<Projects.Mobile_Bff_Shopping>("mobile-bff")
+//    .WithReference(catalogApi)
+//    .WithReference(orderingApi)
+//    .WithReference(basketApi)
+//    .WithReference(identityApi);
 
 // Apps
 var webhooksClient = builder.AddProject<Projects.WebhookClient>("webhooksclient", launchProfileName)
@@ -72,12 +72,15 @@ var webApp = builder.AddProject<Projects.WebApp>("webapp", launchProfileName)
     .WithEnvironment("IdentityUrl", identityEndpoint);
 
 // set to true if you want to use OpenAI
-bool useOpenAI = false;
+//bool useOpenAI = false;
+bool useOpenAI = true;
 if (useOpenAI)
 {
     const string openAIName = "openai";
-    const string textEmbeddingName = "text-embedding-3-small";
-    const string chatModelName = "gpt-35-turbo-16k";
+    //const string textEmbeddingName = "text-embedding-3-small";
+    //const string chatModelName = "gpt-35-turbo-16k";
+    const string textEmbeddingName = "text-embedding-ada-002";
+    const string chatModelName = "gpt-35-turbo";
 
     // to use an existing OpenAI resource, add the following to the AppHost user secrets:
     // "ConnectionStrings": {
